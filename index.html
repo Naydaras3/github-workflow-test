@@ -10,6 +10,7 @@
     main { width: min(720px, calc(100% - 40px)); border: 1px solid color-mix(in srgb, CanvasText 20%, transparent); border-radius: 16px; padding: 28px; box-sizing: border-box; }
     h1 { margin-top: 0; }
     .controls { display: flex; gap: 12px; flex-wrap: wrap; }
+    .workflow { margin-top: 20px; padding: 12px 14px; border: 1px solid currentColor; border-radius: 10px; }
     button { font: inherit; padding: 10px 16px; border-radius: 10px; border: 1px solid currentColor; cursor: pointer; }
     code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
     #count { font-variant-numeric: tabular-nums; }
@@ -25,6 +26,7 @@
       <button id="reset" type="button">Reset</button>
     </div>
     <p id="status">Status: ready</p>
+    <p class="workflow">Branch/PR workflow verified.</p>
   </main>
   <script>
     let count = 0;
