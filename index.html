@@ -9,6 +9,7 @@
     body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: Canvas; color: CanvasText; }
     main { width: min(720px, calc(100% - 40px)); border: 1px solid color-mix(in srgb, CanvasText 20%, transparent); border-radius: 16px; padding: 28px; box-sizing: border-box; }
     h1 { margin-top: 0; }
+    .controls { display: flex; gap: 12px; flex-wrap: wrap; }
     button { font: inherit; padding: 10px 16px; border-radius: 10px; border: 1px solid currentColor; cursor: pointer; }
     code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
     #count { font-variant-numeric: tabular-nums; }
@@ -19,17 +20,27 @@
     <h1>GitHub Workflow Test</h1>
     <p>このページは <code>Naydaras3/github-workflow-test</code> から配信する静的Webアプリの試験です。</p>
     <p>ボタンを押すとブラウザ内のJavaScriptが動作します。</p>
-    <button id="button" type="button">Count: <span id="count">0</span></button>
+    <div class="controls">
+      <button id="button" type="button">Count: <span id="count">0</span></button>
+      <button id="reset" type="button">Reset</button>
+    </div>
     <p id="status">Status: ready</p>
   </main>
   <script>
     let count = 0;
     const countNode = document.querySelector('#count');
     const statusNode = document.querySelector('#status');
+
     document.querySelector('#button').addEventListener('click', () => {
       count += 1;
       countNode.textContent = String(count);
       statusNode.textContent = `Status: JavaScript executed (${new Date().toLocaleTimeString()})`;
+    });
+
+    document.querySelector('#reset').addEventListener('click', () => {
+      count = 0;
+      countNode.textContent = '0';
+      statusNode.textContent = `Status: reset (${new Date().toLocaleTimeString()})`;
     });
   </script>
 </body>
